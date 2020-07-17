@@ -1,6 +1,6 @@
 FROM node:latest
 WORKDIR /usr/src/app/server
-COPY /server/package*.json ./
+COPY package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 3000
