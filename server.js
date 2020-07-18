@@ -1,23 +1,21 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const MongoClient = require("mongodb").MongoClient;
+const mongoose = require("mongoose");
+
+mongoose.connect(
+  "mongodb://srv-captain--docker-final-db/mydatabase?authSource=admin",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const items = require("./routes/api/items");
-const url =
-  "mongodb://srv-captain--docker-final-db/mydatabase?authSource=admin";
-
-const dbName = "mydatabase";
-const client = new MongoClient(url);
 
 const app = express();
 app.use(bodyParser.json());
 
 // Use connect method to connect to the Server
-client.connect(function (err) {
-  assert.equal(null, err);
-  console.log("Connected successfully to server");
-  const db = client.db(dbName);
-});
 
 app.use("/api/items", items);
 const port = process.env.PORT || 80;
