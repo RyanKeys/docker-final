@@ -11,8 +11,6 @@ mongoose.connect(
   }
 );
 
-const items = require("./routes/api/items");
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -20,5 +18,7 @@ app.use(bodyParser.json());
 
 app.use("/api/items", items);
 const port = process.env.PORT || 5000;
+
+app.get("/", (req, res) => res.send("Hello World!"));
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
