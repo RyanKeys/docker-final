@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 mongoose.connect(
   "mongodb://srv-captain--docker-final-db/mydatabase?authSource=admin",
   {
+    useMongoClient: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
