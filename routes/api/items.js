@@ -5,7 +5,7 @@ const Item = require("../../models/item");
 const { request } = require("express");
 
 router.get("/", (req, res) => {
-  res.json("<h1>Hello World! </h1>");
+  res.json({ "hello world": true });
 });
 
 router.post("/", (req, res) => {
