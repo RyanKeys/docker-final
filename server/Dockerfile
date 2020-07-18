@@ -1,5 +1,5 @@
 FROM node:8.7.0
-ADD package*.json ./
+COPY package*.json .
 WORKDIR /usr/src/app/server
 RUN npm install
 COPY . .
