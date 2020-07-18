@@ -6,7 +6,7 @@ const items = require("./routes/api/items");
 const url =
   "mongodb://srv-captain--docker-final-db/mydatabase?authSource=admin";
 
-const dbName = "myproject";
+const dbName = "mydatabase";
 const client = new MongoClient(url);
 
 const app = express();
@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 client.connect(function (err) {
   assert.equal(null, err);
   console.log("Connected successfully to server");
-
   const db = client.db(dbName);
 });
 
