@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:8.7.0
 WORKDIR /usr/src/app/server
 COPY package*.json ./
 RUN npm install
