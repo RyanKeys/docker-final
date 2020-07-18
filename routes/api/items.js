@@ -5,9 +5,7 @@ const Item = require("../../models/item");
 const { request } = require("express");
 
 router.get("/", (req, res) => {
-  Item.find()
-    .sort({ date: -1 })
-    .then((items) => res.json(items));
+  res.json("<h1>Hello World! </h1>");
 });
 
 router.post("/", (req, res) => {
