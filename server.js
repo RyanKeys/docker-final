@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 
 // Use connect method to connect to the Server
 
-app.use("/api/items", items);
 const port = process.env.PORT || 5000;
 
 app.get("/", (req, res) => res.send("Hello World!"));
