@@ -1,6 +1,6 @@
 FROM node:8.7.0
 WORKDIR /usr/src/app/server
-COPY package*.json ./
+ADD package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 3000
