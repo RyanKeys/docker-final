@@ -10,15 +10,6 @@ services:
       - ./server:/usr/src/app/server
     links:
       - mongo
-  client:
-    container_name: client
-    stdin_open: true
-    restart: always
-    build: ./client
-    volumes:
-      - ./client:/usr/src/app/client
-    ports:
-      - "3000:3000"
   mongo:
     hostname: mongo
     restart: always

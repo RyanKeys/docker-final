@@ -1,18 +1,24 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const mongoose = require("mongodb").MongoClient;
 
 const items = require("./routes/api/items");
+const url =
+  "mongodb://srv-captain--docker-final-db/mydatabase?authSource=admin";
+
+const dbName = "myproject";
+const client = new MongoClient(url);
 
 const app = express();
 app.use(bodyParser.json());
 
-const db = require("./config/keys").mongoURI;
+// Use connect method to connect to the Server
+client.connect(function (err) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
 
-mongoose
-  .connect(db)
-  .then(() => console.log("Mongodb connected"))
-  .catch((err) => console.log(err));
+  const db = client.db(dbName);
+});
 
 app.use("/api/items", items);
 const port = process.env.PORT || 5000;
