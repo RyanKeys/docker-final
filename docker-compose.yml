@@ -19,8 +19,6 @@ services:
       - ./client:/usr/src/app/client
     ports:
       - "3000:3000"
-    links:
-        -server
   mongo:
     hostname: mongo
     restart: always
